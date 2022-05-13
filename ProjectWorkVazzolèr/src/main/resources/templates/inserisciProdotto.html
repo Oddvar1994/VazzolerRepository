@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Aggiungi Prodotto</title>
+<link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+	<div id="malin">
+		<form method="POST" th:action="@{/inserisciProdotto}" th:object="${prodotto}">
+		    <fieldset>
+		        <legend>Inserisci un prodotto</legend>
+		        	 <p>
+		                <label for="codProdotto">Codice prodotto: </label>
+		                <input type="text" id="codProdotto" name="codProdotto"><br/>
+		                
+		            </p>
+		            <p>
+		                <label for="nome">Nome prodotto: </label>
+		                <input type="text" id="nome" name="nome"><br/>
+		                
+		            </p>
+		            <p>
+		                <label for="tipoProdotto">Tipo prodotto: </label>
+		                <select name="tipoProdotto" th:field="*{tipoProdotto}">
+		                <option value="">seleziona..</option>
+						<option th:each="c : ${listTipiProdotto}" th:value="${c}" th:text="${c}"></option>
+						</select><br/>
+		            </p>
+		            <p>
+		                <label for="prezzo">Prezzo: </label>
+		                <input type="text" id="prezzo" name="prezzo"><br/>
+		                
+		            </p>
+		            <p id="buttons">
+		                <input id="reset" type="reset" value="Pulisci">
+		                <input id="submit" type="submit" value="Inserisci">
+		            </p>
+		    </fieldset>
+		</form>
+	</div>
+</body>
+</html>

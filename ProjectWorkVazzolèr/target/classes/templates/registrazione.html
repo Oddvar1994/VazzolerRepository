@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Registrazione</title>
+<link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+	<div id="malin">
+		<h3>Registrazione</h3>
+		<form method="post" th:action="@{/registrazione}" th:object="${utente}">
+			<fieldset>
+				<legend>Registrazione</legend>
+				<p>
+					<label for="nome">Nome:</label>
+					<input type="text" name="nome" th:field="*{nome}"/><br/>
+					<span class="validationError" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span><br/>
+				</p>
+				<p>
+					<label for="cognome">Cognome:</label>
+					<input type="text" name="cognome" th:field="*{cognome}"/><br/>
+					<span class="validationError" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span><br/>
+				</p>
+				<p>
+					<label for="email">Email:</label>
+					<input type="text" name="email" th:field="*{email}" /><br/>
+					<span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br/>
+				</p>
+				<p>
+					<label for="username">Username:</label>
+					<input type="text" name="username" th:field="*{username}"/><br/>
+					<span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span><br/>
+				</p>
+				<p>
+					<label for="password">Password:</label>
+					<input type="password" name="password" th:field="*{password}"/><br/>
+					<span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span><br/>
+				</p>
+				<p>
+					<label for="dataNascita">Data di nascita:</label>
+					<input type="date" name="dataNascita" th:field="*{dataNascita}" /><br/>
+					<span class="validationError" th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}"></span><br/>
+				</p>
+				<p id="buttons">
+					<input id="reset" type="reset" value="Pulisci">
+					<input id="submit" type="submit" value="Registra">
+				</p>
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>

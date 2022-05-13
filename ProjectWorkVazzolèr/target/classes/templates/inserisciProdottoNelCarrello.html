@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<title>Aggiungi al carrello</title>
+<link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+
+<div id="malin">
+<form method="POST" th:action="@{/inserisciProdottoNelCarrello}" th:object="${prodotto}">
+    <fieldset>
+        <legend>Inserisci prodotto nel carrello</legend>
+        	 <p>
+                <label for="codProdotto">Codice prodotto: </label>
+                <input type="text" id="codProdotto" name="codProdotto"><br/>
+            </p>
+            <p>
+                <label for="quantita">Quantità: </label>
+                <input type="text" id="quantita" name="quantita"><br/>                
+            </p>
+            <p>
+                <label for="codUtente">Codice utente: </label>
+                <input type="text" id="codUtente" name="codUtente"><br/>
+            </p>
+            <p id="buttons">
+                <input id="reset" type="reset" value="Pulisci">
+                <input id="submit" type="submit" value="Inserisci">
+            </p>
+    </fieldset>
+</form>
+</div>
+</body>
+</html>

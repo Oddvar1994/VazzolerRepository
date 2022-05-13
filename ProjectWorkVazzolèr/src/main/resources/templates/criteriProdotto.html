@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Criteri Prodotto</title>
+<link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+	<div id="malin">
+	<form method="POST" th:action="@{/selezionaProdotto}" th:object="${criteri}">
+			<fieldset>
+				<legend>Cerca prodotto</legend>
+				<p>
+					<label for="prezzo">Prezzo:</label>
+					<input type="text" name="prezzo" th:field="*{prezzo}"><br/>
+					<span class="validationError" th:if="${#fields.hasErrors('prezzo')}" th:errors="*{prezzo}"></span>
+				</p>
+				<p>
+					<label for="tipoProdotto">Tipo prodotto:</label>
+					<select name="tipoProdotto" th:field="*{tipoProdotto}">
+						<option value="">tipo...</option>
+						<option th:each="c : ${listTipiProdotto}" th:value="${c}" th:text="${c}"></option>
+					</select><br/>
+					<span class="validationError" th:if="${#fields.hasErrors('tipoProdotto')}" th:errors="*{tipoProdotto}"></span>
+				</p>
+				<p id="buttons">
+					<input type="reset" value="Pulisci"/>
+					<input type="submit" value="Cerca"/>
+				</p>
+			</fieldset>
+		</form>
+		<div class="center"><a th:href="@{/menuCliente}">Menù Cliente</a></div><br>
+	</div>
+</body>
+</html>
